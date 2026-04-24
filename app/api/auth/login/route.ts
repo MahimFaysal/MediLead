@@ -29,10 +29,17 @@ export async function POST(req: NextRequest) {
     )
     return NextResponse.json({
       success: true, token,
-      user: { id: user.id, email: user.email,
-        firstName: user.firstName, lastName: user.lastName }
+      user: {
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName
+      }
     })
   } catch (e) {
-    return NextResponse.json({ error: "Server error" }, { status: 500 })
+    return NextResponse.json(
+      { error: "Server error" },
+      { status: 500 }
+    )
   }
 }
